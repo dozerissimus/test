@@ -1,0 +1,65 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<h3 style="text-align: center">Профиль</h3>
+{#<div class="col-xs-2" align = "center">
+    <div id="img_container">
+        <img class="avatar" id="avatar" src = "">
+    </div><br>
+    <button type="button" id="avatarUpload" class="btn btn-default btn-sm" style="width: 100px">Загрузить</button>
+    <span id="status"></span>
+</div>#}
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+   {# {{ form_widget(form) }}#}
+   {#<div class="profile_edit_cell">
+       <strong>Username:</strong><div class="form-errors">{{ form_errors(form.username) }}</div><br>
+        {#<input type="text" value="{{ form.vars.value.username }}" disabled>
+        {{ form_widget(form.username) }}
+   </div>#}
+   <div class="profile_edit_cell">
+        <strong>Email:</strong><span class="form-errors">{{ form_errors(form.email) }}</span><br>
+        {{ form_widget(form.email) }}
+   </div>
+   <div class="profile_edit_cell">
+        <strong>Current password:</strong><span class="form-errors">{{ form_errors(form.current_password) }}</span><br>
+        {{ form_widget(form.current_password) }}
+        <button class="btn btn-default btn-sm margin_button" type="button" onclick="location.href='{{ path('fos_user_change_password') }}'">{{ 'change_password.submit'|trans }}</button>
+   </div>
+   <div class="profile_edit_cell">
+        <strong>Name:</strong><span class="form-errors">{{ form_errors(form.name) }}</span><br>
+        {{ form_widget(form.name) }}
+   </div>
+   <div class="profile_edit_cell">
+        {#<strong>Avatar:</strong><span class="form-errors">{{ form_errors(form.file) }}</span><br>
+        <div id="img_container">
+            <img class="preview" id="avatar" src = "/uploads/avatars/{{ form.vars.value.avatar }}">
+        </div>
+        {{ form_widget(form.file) }}#}
+        <strong>Avatar:</strong>
+        <div id="img_container">
+            <img class="avatar" id="avatar" src = "/uploads/avatars/{{ form.vars.value.avatar }}">
+        </div><br>
+        <button type="button" id="avatarUpload" class="btn btn-default btn-sm" style="width: 100px">Upload</button>
+        <span id="status"></span>
+   </div>
+   <div class="profile_edit_cell">
+        <strong>Gender:</strong><span class="form-errors">{{ form_errors(form.gender) }}</span><br>
+        {{ form_widget(form.gender) }}
+   </div>
+   <div class="profile_edit_cell">
+        <strong>Bidthdate:</strong><span class="form-errors">{{ form_errors(form.bidthdate) }}</span><br>
+        {{ form_widget(form.bidthdate) }}
+   </div>
+   <div class="profile_edit_cell">
+        <strong>From:</strong><span class="form-errors">{{ form_errors(form.home) }}</span><br>
+        {{ form_widget(form.home) }}
+   </div>
+   
+    
+    <div class="bottom-buttons">
+        <input type="submit" class="btn btn-default btn-sm margin_button" value="{{ 'profile.edit.submit'|trans }}" />
+        <button class="btn btn-default btn-sm margin_button" type="button" onclick="location.href='{{ path('fos_user_profile_show') }}'">{{ 'base.cancel'|trans }}</button>
+    </div>
+    {{ form_rest(form) }}
+</form>
+
+    

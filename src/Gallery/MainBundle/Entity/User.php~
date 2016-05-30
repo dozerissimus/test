@@ -1,0 +1,311 @@
+<?php
+
+namespace Gallery\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
+/**
+ * User
+ *
+ * @ORM\Table(name="users")
+ * @ORM\Entity
+ */
+class User extends BaseUser
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set passkey
+     *
+     * @param string $passkey
+     * @return User
+     */
+    public function setPasskey($passkey)
+    {
+        $this->passkey = $passkey;
+
+        return $this;
+    }
+
+    /**
+     * Get passkey
+     *
+     * @return string 
+     */
+    public function getPasskey()
+    {
+        return $this->passkey;
+    }
+
+    /**
+     * Set registered
+     *
+     * @param \DateTime $registered
+     * @return User
+     */
+    public function setRegistered($registered)
+    {
+        $this->registered = $registered;
+
+        return $this;
+    }
+
+    /**
+     * Get registered
+     *
+     * @return \DateTime 
+     */
+    public function getRegistered()
+    {
+        return $this->registered;
+    }
+
+    /**
+     * Set lastvisit
+     *
+     * @param \DateTime $lastvisit
+     * @return User
+     */
+    public function setLastvisit($lastvisit)
+    {
+        $this->lastvisit = $lastvisit;
+
+        return $this;
+    }
+
+    /**
+     * Get lastvisit
+     *
+     * @return \DateTime 
+     */
+    public function getLastvisit()
+    {
+        return $this->lastvisit;
+    }
+
+    /**
+     * Set ip
+     *
+     * @param string $ip
+     * @return User
+     */
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Get ip
+     *
+     * @return string 
+     */
+    public function getIp()
+    {
+        return $this->ip;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set gender
+     *
+     * @param string $gender
+     * @return User
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Get gender
+     *
+     * @return string 
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * Set bidthday
+     *
+     * @param string $bidthday
+     * @return User
+     */
+    public function setBidthday($bidthday)
+    {
+        $this->bidthday = $bidthday;
+
+        return $this;
+    }
+
+    /**
+     * Get bidthday
+     *
+     * @return string 
+     */
+    public function getBidthday()
+    {
+        return $this->bidthday;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return User
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set avatar
+     *
+     * @param string $avatar
+     * @return User
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Get avatar
+     *
+     * @return string 
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return User
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string 
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set home
+     *
+     * @param string $home
+     * @return User
+     */
+    public function setHome($home)
+    {
+        $this->home = $home;
+
+        return $this;
+    }
+
+    /**
+     * Get home
+     *
+     * @return string 
+     */
+    public function getHome()
+    {
+        return $this->home;
+    }
+}

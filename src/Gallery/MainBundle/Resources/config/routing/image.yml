@@ -1,0 +1,35 @@
+image:
+    path:     /
+    defaults: { _controller: "GalleryMainBundle:Image:index" }
+
+image_show:
+    path:     /{category_id}/show
+    defaults: { _controller: "GalleryMainBundle:Image:show" }
+
+image_new:
+    path:     /new
+    defaults: { _controller: "GalleryMainBundle:Image:new" }
+
+image_create:
+    path:     /create
+    defaults: { _controller: "GalleryMainBundle:Image:create" }
+    requirements: { _method: post }
+
+image_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GalleryMainBundle:Image:edit" }
+
+image_update:
+    path:     /{id}/update
+    defaults: { _controller: "GalleryMainBundle:Image:update" }
+    requirements: { _method: post|put }
+
+image_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GalleryMainBundle:Image:delete" }
+    requirements: { _method: post|delete }
+    
+image_delete_confirm:
+    path:     /{id}/deleteconfirm
+    defaults: { _controller: "GalleryMainBundle:Image:deleteConfirm" }
+    requirements: { _method: post|delete }

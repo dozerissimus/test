@@ -1,0 +1,30 @@
+{% extends "GalleryMainBundle::layout.html.twig" %}
+
+{% block title %}
+    Новая категория
+{% endblock %}
+
+{% block content %}
+    {% block content_h3 %}
+        <h3 style="text-align: center">Новая категория</h3>
+    {% endblock %}
+    
+    <form action="{% block form_path %}{{ path('new_category') }}{% endblock %}" method="POST" {{ form_enctype(form) }}>
+        <div class="edit-block">
+            Имя категории:</br>
+            {{ form_widget(form.name) }}
+            {{ form_errors(form.name) }}
+        </div>
+        <div class="edit-block">
+            Родитель:</br>
+            {{ form_widget(form.parent) }}
+            {{ form_errors(form.parent) }}
+        </div>
+        {{ form_rest(form) }}
+        <div class="bottom-buttons">
+            <input class="btn btn-default btn-sm margin_button" type="submit" value="Сохранить" />
+            {% block btn_delete %}{% endblock %}
+            <button class="btn btn-default btn-sm margin_button" onclick="history.back()">Отменить</button>
+        </div>
+    </form>
+{% endblock %}

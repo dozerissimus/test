@@ -1,0 +1,7 @@
+Вы вошли как
+<font color="blue">{{ user }}</font>
+
+<div class="button_place">
+    <button class="btn btn-default btn-sm" onClick="location.href='{{ path('fos_user_profile_show') }}'">Личный кабинет</button>
+    <button class="btn btn-default btn-sm" onClick="location.href='{{ path('fos_user_security_logout') }}'">Выход</button>
+</div>

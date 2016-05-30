@@ -1,0 +1,57 @@
+gallery_main_image:
+    resource: "@GalleryMainBundle/Resources/config/routing/image.yml"
+    prefix:   /image
+
+
+homepage:
+    path:   /
+    defaults: { _controller: GalleryMainBundle:Image:index }
+
+show_categories:
+    path:   /admin/showcat
+    defaults: { _controller: GalleryMainBundle:Admin:showcat }
+    
+new_category:
+    path:   /admin/newcat
+    defaults: { _controller: GalleryMainBundle:Admin:newcat }
+    
+edit_category:
+    path:   /admin/editcat/{id}
+    defaults: { _controller: GalleryMainBundle:Admin:editcat }
+    
+delete_category:
+    path:   /admin/delcat/{id}
+    defaults: { _controller: GalleryMainBundle:Admin:delcat }
+
+
+####################################################################
+
+upload_image:
+    path:   /ajax/uploadimage
+    defaults: { _controller: GalleryMainBundle:Image:ajaxuploadavatar }
+    
+ajax_get_page:
+    path:   /ajax/getpage
+    defaults: { _controller: GalleryMainBundle:Image:ajaxgetpage }
+
+addimage:
+    path:   /addimage
+    defaults: { _controller: GalleryMainBundle:Image:addimage }
+    
+show_images:
+    path:   /showimages/{category_id}
+    defaults: { _controller: GalleryMainBundle:Image:show, category_id: 0 }
+    
+######################################################################
+
+comment_create:
+    path: /comment/create
+    defaults: { _controller: GalleryMainBundle:Image:commentCreate }
+    requirements: { _method: post }
+    
+comment_delete:
+    path: /comment/delete
+    defaults: { _controller: GalleryMainBundle:Image:commentDelete }
+    requirements: { _method: post }
+    
+    

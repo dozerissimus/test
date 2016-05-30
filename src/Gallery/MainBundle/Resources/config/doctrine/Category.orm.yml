@@ -1,0 +1,24 @@
+Gallery\MainBundle\Entity\Category:
+    type: entity
+    table: categories
+    repositoryClass: Gallery\MainBundle\Entity\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        parent:
+            type: bigint
+            null: true
+    
+    oneToMany:
+        images:
+            targetEntity: Image
+            mappedBy: category
+    
+    lifecycleCallbacks: {  }

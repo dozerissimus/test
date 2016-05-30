@@ -1,0 +1,12 @@
+{% extends "GalleryMainBundle::layout.html.twig" %}
+{% block title %}
+    Удаление категории: {{ category.name }}
+{% endblock %}
+
+{% block content %}
+    <h4> Вы уверенны, что хотите удалить категорию: {{ category.name }}? </h4>
+    <form action="{{ path('delete_category', { 'id': category.id }) }}" method="POST">
+        <input class="btn btn-default btn-sm margin_button" type="submit" value="Удалить" />
+        <button class="btn btn-default btn-sm margin_button" type="button" onclick="location.href='{{ path('show_categories') }}'">Отменить</button>
+    </form>
+{% endblock %}

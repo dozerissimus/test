@@ -1,0 +1,48 @@
+Gallery\UserBundle\Entity\User:
+    type:  entity
+    table: gallery_user
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 100
+            nullable: true
+        home:
+            type: text
+            nullable: true
+        avatar:
+            type: text
+            nullable: true
+        ip:
+            type: string
+            length: 15
+            nullable: true
+        bidthdate:
+            type: datetime
+            nullable: true
+        gender: 
+            type: string
+            length: 6
+            nullable: true
+        register:
+            type: datetime
+            nullable: true
+        for_update:
+            type: boolean
+            nullable: true
+        
+            
+    lifecycleCallbacks:
+            prePersist: [ setRegister, setIp ]
+            #preUpdate: [ preUpload ]
+            #postPersist: [ upload ]
+            #postUpdate: [ upload, setForUpdate ]
+            
+            preUpdate: [ saveTempFile ]
+            postUpdate: [ setForUpdate ]
+            postRemove: [ removeUpload ]
+           

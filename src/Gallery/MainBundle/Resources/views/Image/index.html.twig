@@ -1,0 +1,12 @@
+{% extends 'GalleryMainBundle::layout.html.twig' %}
+
+{% block content %}
+    <h3 style="text-align: center">Категории</h3>
+        {% for i, entity in entities %}
+            <div class="indexview col-xs-6">
+              <h5><b>{{ entity.catinfo.name }}</b></h5>
+
+                <a href = {{ path('show_images', {'category_id': entity.catinfo.id}) }}><img src="/uploads/images/{{ entity.images.filename }}" width="90%"></a>
+            </div>
+        {% endfor %}    
+{% endblock %}

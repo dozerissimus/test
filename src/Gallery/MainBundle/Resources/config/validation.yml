@@ -1,0 +1,13 @@
+Gallery\MainBundle\Entity\Category:
+    properties:
+        name:
+            - NotBlank: ~
+            
+Gallery\MainBundle\Entity\Image:
+    properties:
+        #category:
+        #    - NotBlank: ~
+        temp_name:
+            - NotBlank: ~
+        temp_md5:
+            - NotBlank: ~

@@ -1,0 +1,59 @@
+{#    <ul id="slider">#}
+        {% for image in images %}
+{#            <li>#}
+                
+{#                <div class="image_info" id='iminfo{{ image.id }}'>#}
+                    {% if user.username is defined %}
+                                              
+                            {% if (user.username == image.autor) or ('ROLE_ADMIN' in user.roles) %}
+                                <button class="btn btn-default btn-sm margin_button" style="float: right" type="button" onclick="location.href='{{ path('image_edit', {'id': image.id}) }}'">Редактировать</button>
+                            {% endif %}
+                        
+                    {% endif %}
+                    <div class="im_info_title"> Описание: </div><div class="image_info" id="im-description">{{ image.description }}</div>
+                    <div class="im_info_title"> Разместил: </div><div class="image_info" id="im-posted">{{ image.autor }}</div>
+                    <div class="im_info_title"> Дата: </div> <div class="image_info" id="im-date">{{ image.date.date }}</div>
+{#                </div>#}
+                <div id='im{{ image.id }}' class="postimage" style='background-image:url("/uploads/images/{{ image.filename }}");'>                   
+                    
+                    <div class="nav-arrow-left" style='background-image:url("/source/arrow_left.png");'></div>
+                    <div class="nav-image-next">
+                        <div class="nav-arrow-right" style='background-image:url("/source/arrow_right.png");'></div>
+                    </div>
+                    <div class="loading-sprite" style='background-image:url("/source/loading.png");'>                   
+{#                        <img src="/source/arrow_left.png" class="nav-arrow-left">#}
+{#                        <img src="/source/arrow_right.png" class="nav-arrow-right">#}
+                    </div>
+                </div>
+
+{#                <div id='comblock{{ image.id }}' hidden>#}
+{#                    {% for comment in image.comments %}#}
+{#                        <div class='comment-cell'>#}
+{#                            {{ comment.body }}#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#                <form id='comform{{ image.id }}' hidden>#}
+{#                    <input type='textarea' id='comment-body{{ image.id }}'>#}
+{#                    <button type='button' id='send-comment{{ image.id }}' class="btn btn-default btn-sm">Send</button>#}
+{#                </form>#}
+{#            </li>#}
+                <div class='comment-wrapper'>
+                    {% include 'GalleryMainBundle:Image:commentblock.html.twig' %}
+                </div>
+                <div class='form-comment'>
+                    {% if user.username is not defined %}
+                        Чтобы оставлять коментарии <a href="{{ path("fos_user_security_login") }}">войдите</a> или <a href="{{ path('fos_user_registration_register')}}">зарегистрируйтесь</a>
+                    {% else %}                    
+                        <form id='comform'>
+                            <center><textarea placeholder="Оставить комментарий..." rows='5' id='comment-body' class='form-control input-sm'></textarea></center>
+                            <button type='button' id='send-comment' class="send-comment btn btn-default btn-sm">Отправить</button>
+                        </form>                    
+                    {% endif %}
+                </div>
+                    <div id="cat_id" hidden>{{ category.id }}</div>
+                <div id="page" hidden>{{ page }}</div>
+                <div id="idim" hidden>{{ image.id }}</div>
+        {% endfor %}
+{#    </ul>#}
+    

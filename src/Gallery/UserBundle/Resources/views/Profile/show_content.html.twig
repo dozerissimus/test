@@ -1,0 +1,56 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{#{% block title %}
+    Профиль пользователя {{ user.username }}
+{% endblock %}#}
+
+<h3 style="text-align: center">Личный кабинет</h3>
+<div align="center">
+    <button class="btn btn-default btn-sm margin_button" type="button" onclick="location.href='{{ path('image_new') }}'">Добавить изображение</button>
+{#    <button class="btn btn-default btn-sm margin_button" type="button" onclick="location.href='{{ path('image_new') }}'">Список участников</button>#}
+    <button class="btn btn-default btn-sm margin_button" type="button" onclick="location.href='{{ path('fos_user_profile_edit') }}'">Редактировать профиль</button>
+    {% for role in user.roles %}
+        {% if role == 'ROLE_ADMIN' %}
+            <button class="btn btn-default btn-sm margin_button" type="button" onclick="location.href='{{ path('show_categories') }}'">Редактировать категории</button>
+        {% endif %}
+    {% endfor %}
+    
+</div>
+
+<h5 style="text-align: center">Профиль</h5>
+
+<div class="col-xs-2">
+    {% if not user.avatar %}
+        <img id="avatar" src="/source/default-avatar.jpg">
+    {% else %}
+        <img id="avatar" src="/uploads/avatars/{{ user.avatar }}">
+    {% endif %}
+</div>
+<div class="col-xs-3">
+    Ник:<br>
+    Email:<br>
+    Последний визит:<br>
+    IP:<br>
+    Имя:<br>
+    Дата рождения:<br>
+    Зарегистрирован(а):<br>
+    Откуда:<br>
+</div>
+<div class="col-xs-7">
+    <strong>{{ user.username }}</strong>
+    <img src="/source/{{ user.gender }}.png" alt="{{ user.gender }}"><br>
+    <strong>{{ user.email }}</strong><br>
+    <strong>{{ user.lastLogin.date }}</strong><br>
+    <strong>{{ user.ip }}</strong><br>
+    <strong>{{ user.name }}</strong><br>
+    <strong>{{ user.bidthdate.date }}</strong><br>
+    <strong>{{ user.register.date }}</strong><br>
+    <strong>{{ user.home }}</strong><br>
+</div>
+<div style="clear: both"></div>
+<div align="center" style="margin-top: 50px">
+<button class="btn btn-default btn-sm" type="button" onclick="history.back()">Вернуться</button>
+</div>
+</div>
+
+

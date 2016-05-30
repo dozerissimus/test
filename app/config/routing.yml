@@ -1,0 +1,15 @@
+gallery_user:
+    resource: "@GalleryUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gallery_main:
+    resource: "@GalleryMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation

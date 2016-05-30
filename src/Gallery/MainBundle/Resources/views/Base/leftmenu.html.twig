@@ -1,0 +1,23 @@
+<a href="{{ path('homepage') }}"><p>Главная</p></a>
+<a href="{{ path('show_images') }}"><p>Просмотр всех</p></a>
+<h5>Просмотр по категориям:</h5>
+
+{% if not categories %}
+    <h4>В базе отсутствуют разделы для вывода</h4>
+{% else %}
+    {% for category in categories %}
+        {% if not category.parent %}
+            <p>{{ category.name }}</p><ul><a href="{{ path('show_images', {'category_id': category.id}) }}"><li>Все</li></a>
+            {% for subcategory in categories %}
+                {% if subcategory.parent == category.id %}
+                    <a href="{{ path('show_images', {'category_id': subcategory.id}) }}"><li>{{ subcategory.name }}</li></a>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+</br></br></br>
+<a href="?act=callback"><p>Обратная связь</p></a>
+

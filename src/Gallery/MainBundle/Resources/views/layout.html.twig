@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}
+    Главная: Открытая Галерея
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 head-block">{% include 'GalleryMainBundle:Base:head-block.html.twig' %}</div>
+            <div class="col-xs-12 userbar">{% block userbar %}{{ render(controller('GalleryMainBundle:Gallery:userbar')) }}{% endblock %}</div>  
+            <div class="col-xs-3" id="left-menu">{% block leftmenu %}{{ render(controller('GalleryMainBundle:Gallery:leftmenu')) }}{% endblock %}</div>
+            <div class="col-xs-9" id="content">{% block content %}{% endblock %}</div>
+        </div>
+    </div>
+{% endblock %}

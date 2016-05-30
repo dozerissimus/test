@@ -1,0 +1,5 @@
+GalleryUserBundle\Entity\User:
+    properties:
+        file:
+            - Image: ~
+            

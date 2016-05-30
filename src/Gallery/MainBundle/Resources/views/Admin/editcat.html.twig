@@ -1,0 +1,17 @@
+{% extends "GalleryMainBundle:Admin:newcat.html.twig" %}
+
+{% block title %}
+    Редактирование категории: {{ category.name }}
+{% endblock %}
+
+{% block content_h3 %}
+    <h3 style="text-align: center">Редактирование категории id: {{ category.id }}</h3>
+{% endblock %}
+
+{% block form_path %}
+    {{ path('edit_category', { 'id': category.id }) }}
+{% endblock %}
+
+{% block btn_delete %}
+    <button class="btn btn-default btn-sm margin_button" onclick="location.href='{{ path('delete_category', { 'id': category.id }) }}'" type="button">Удалить</button>
+{% endblock %}

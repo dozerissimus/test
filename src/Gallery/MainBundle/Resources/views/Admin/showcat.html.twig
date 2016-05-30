@@ -1,0 +1,41 @@
+{% extends "GalleryMainBundle::layout.html.twig" %}
+
+{% block title %}
+    Список категорий
+{% endblock %}
+
+{% block content %}
+    <h3 style="text-align: center">Список категорий</h3>
+    
+    {% if categories %}
+        <table class="table table-striped table-condensed">
+        
+            {% for category in categories %}
+                {% if not category.parent %}
+                    <tr>
+                        <td>{{ category.name }}</td>
+                        <td><a href="{{ path('edit_category', { 'id': category.id }) }}" class="link-edit"><em> редактировать </em></a></td>
+                    </tr>
+                    
+                    {#<ul>#}
+                    {% for subcategory in categories %}
+                        {% if subcategory.parent == category.id %}
+                            <tr>
+                                <td style="padding-left:3em">{{ subcategory.name }}</td>
+                                <td><a href="{{ path('edit_category', { 'id': subcategory.id }) }}" class="link-edit"><em> редактировать</em> </a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    {#</ul>#}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </table>
+    {% else %}
+        Не создано ни одной категории
+    {% endif %}
+    <div class="bottom-buttons">
+        <button class="btn btn-default btn-sm margin_button" onclick="location.href='{{ path('new_category') }}'">Добавить категорию</button>
+        <button class="btn btn-default btn-sm margin_button" onclick="location.href='{{ path('fos_user_profile_show') }}'">В кабинет</button>
+    </div>
+{% endblock %}

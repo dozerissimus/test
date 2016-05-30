@@ -1,0 +1,45 @@
+Gallery\MainBundle\Entity\Image:
+    type: entity
+    table: images
+    repositoryClass: Gallery\MainBundle\Entity\ImageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        date:
+            type: datetime
+            nullable: true
+        autor:
+            type: string
+            length: 255
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        filename:
+            type: text
+            nullable: true
+        for_update:
+            type: boolean
+            nullable: true
+    
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy: images
+            joinColumn:
+                name: category_id
+                referencedColumnName: id 
+                
+    oneToMany:
+        comments:
+            targetEntity: Comment
+            mappedBy: image
+           
+            
+    lifecycleCallbacks: 
+        prePersist: [ saveTempFile, setDate ]
+        postRemove: [ removeUpload ]

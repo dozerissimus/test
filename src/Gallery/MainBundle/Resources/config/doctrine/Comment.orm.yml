@@ -1,0 +1,37 @@
+Gallery\MainBundle\Entity\Comment:
+    type: entity
+    table: comments
+    repositoryClass: Gallery\MainBundle\Entity\CommentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        body:
+            type: text
+            nullable: true
+        autor:
+            type: string
+            length: 255
+            nullable: true
+        date:
+            type: datetime
+        is_read:
+            type: boolean
+            nullable: true
+        is_deleted:
+            type: boolean
+            nullable: true
+    
+    manyToOne:
+        image:
+            targetEntity: Image
+            inversedBy: comments
+            joinColumn:
+                name: image_id
+                referencedColumnName: id
+    
+    lifecycleCallbacks: 
+        prePersist: [ setDate ]

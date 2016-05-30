@@ -1,0 +1,12 @@
+services:
+    gallery_user.registration.form.type:
+        class: Gallery\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: gallery_user_registration }
+            
+    gallery_user.profile.form.type:
+        class: Gallery\UserBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: gallery_user_profile }

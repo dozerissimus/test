@@ -1,0 +1,10 @@
+
+    <div class='comments-block'>
+        {% for comment in image.comments %}
+            <div class="comment-cell">
+                <strong>{{ comment.author }}</strong> ({{comment.date.date}})<br>
+                {{ comment.body }}
+            </div>
+        {% endfor %}
+    </div>    
+

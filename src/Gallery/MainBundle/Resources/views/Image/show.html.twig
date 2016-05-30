@@ -1,0 +1,11 @@
+{#{% if op is defined %}#}
+    {% extends 'GalleryMainBundle::layout.html.twig' %}
+{#{% endif %}#}
+
+{% block title %}
+    {{ category.name }}
+{% endblock %}
+
+{% block content %}
+    {% include 'GalleryMainBundle:Image:show_content.html.twig' %}
+{% endblock %}
